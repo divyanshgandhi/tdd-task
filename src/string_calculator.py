@@ -48,17 +48,21 @@ class StringCalculator:
         number = int(numbers)
         if number < 0:
             raise ValueError(f"negatives not allowed: {number}")
+        # Ignore numbers bigger than 1000
+        if number > 1000:
+            return 0
         return number
 
     def _calculate_sum_with_validation(self, parts: List[str]) -> int:
         """
         Calculate sum of string parts while validating for negative numbers.
+        Numbers bigger than 1000 are ignored.
         
         Args:
             parts: List of string numbers to sum
             
         Returns:
-            int: Sum of all positive numbers
+            int: Sum of all valid positive numbers <= 1000
             
         Raises:
             ValueError: When negative numbers are found
@@ -70,4 +74,6 @@ class StringCalculator:
             negatives_str = ", ".join(str(neg) for neg in negatives)
             raise ValueError(f"negatives not allowed: {negatives_str}")
         
-        return sum(numbers)
+        # Filter out numbers bigger than 1000
+        valid_numbers = [num for num in numbers if num <= 1000]
+        return sum(valid_numbers)

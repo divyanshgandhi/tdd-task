@@ -141,3 +141,27 @@ class TestStringCalculator:
         """
         with pytest.raises(ValueError, match="negatives not allowed: -2"):
             self.calculator.add("//;\n1;-2;3")
+
+    def test_numbers_bigger_than_1000_are_ignored(self):
+        """
+        ADVANCED FEATURE: Numbers bigger than 1000 should be ignored
+        Testing with "2,1001" should return 2 (1001 ignored)
+        """
+        result = self.calculator.add("2,1001")
+        assert result == 2
+
+    def test_multiple_numbers_over_1000_ignored(self):
+        """
+        ADVANCED FEATURE: Multiple numbers over 1000 should be ignored
+        Testing with "1,2,1001,1002,3" should return 6 (1001,1002 ignored)
+        """
+        result = self.calculator.add("1,2,1001,1002,3")
+        assert result == 6
+
+    def test_exactly_1000_is_included(self):
+        """
+        ADVANCED FEATURE: Exactly 1000 should be included (boundary test)
+        Testing with "2,1000" should return 1002
+        """
+        result = self.calculator.add("2,1000")
+        assert result == 1002
