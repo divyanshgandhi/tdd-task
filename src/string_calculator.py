@@ -29,6 +29,16 @@ class StringCalculator:
         if not numbers:
             return 0
         
+        # Handle custom delimiter format: //[delimiter]\n[numbers...]
+        if numbers.startswith('//'):
+            # Extract custom delimiter and numbers
+            delimiter_line, numbers_part = numbers.split('\n', 1)
+            custom_delimiter = delimiter_line[2:]  # Remove '//' prefix
+            # Escape special regex characters
+            escaped_delimiter = re.escape(custom_delimiter)
+            parts = re.split(escaped_delimiter, numbers_part)
+            return sum(int(part) for part in parts)
+        
         # Handle comma and/or newline-separated numbers
         if ',' in numbers or '\n' in numbers:
             parts = re.split(r'[,\n]', numbers)

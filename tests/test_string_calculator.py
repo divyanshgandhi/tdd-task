@@ -71,3 +71,27 @@ class TestStringCalculator:
         """
         result = self.calculator.add("1\n2,3")
         assert result == 6
+
+    def test_custom_delimiter_semicolon_return_sum(self):
+        """
+        RED PHASE: Custom semicolon delimiter should return sum
+        Testing with "//;\n1;2" should return 3
+        """
+        result = self.calculator.add("//;\n1;2")
+        assert result == 3
+
+    def test_custom_delimiter_pipe_return_sum(self):
+        """
+        RED PHASE: Custom pipe delimiter should return sum
+        Testing with "//|\n1|2|3" should return 6
+        """
+        result = self.calculator.add("//|\n1|2|3")
+        assert result == 6
+
+    def test_custom_delimiter_asterisk_return_sum(self):
+        """
+        RED PHASE: Custom asterisk delimiter should return sum
+        Testing with "//*\n1*2*3*4" should return 10
+        """
+        result = self.calculator.add("//*\n1*2*3*4")
+        assert result == 10

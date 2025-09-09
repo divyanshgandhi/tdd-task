@@ -53,9 +53,9 @@ ptw --runner "pytest --tb=short"
 ### ✅ Step 3: Handle New Lines
 - [x] Support new lines between numbers: `"1\n2,3"` → `6`
 
-### Step 4: Support Different Delimiters
-- [ ] Custom delimiter format: `"//[delimiter]\n[numbers...]"`
-- [ ] Example: `"//;\n1;2"` → `3`
+### ✅ Step 4: Support Different Delimiters
+- [x] Custom delimiter format: `"//[delimiter]\n[numbers...]"`
+- [x] Example: `"//;\n1;2"` → `3`
 
 ### Step 5: Negative Numbers
 - [ ] Throw exception for negative numbers
