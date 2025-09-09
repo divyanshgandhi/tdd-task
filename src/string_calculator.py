@@ -29,9 +29,9 @@ class StringCalculator:
         if not numbers:
             return 0
         
-        # Handle comma-separated numbers
-        if ',' in numbers:
-            parts = numbers.split(',')
+        # Handle comma and/or newline-separated numbers
+        if ',' in numbers or '\n' in numbers:
+            parts = re.split(r'[,\n]', numbers)
             return sum(int(part) for part in parts)
         
         # Handle single number case

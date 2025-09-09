@@ -55,3 +55,19 @@ class TestStringCalculator:
         """
         result = self.calculator.add("1,2,3,4,5")
         assert result == 15
+
+    def test_newline_separated_numbers_return_sum(self):
+        """
+        RED PHASE: Newline-separated numbers should return their sum
+        Testing with "1\n2" should return 3
+        """
+        result = self.calculator.add("1\n2")
+        assert result == 3
+
+    def test_mixed_comma_and_newline_delimiters_return_sum(self):
+        """
+        RED PHASE: Mixed comma and newline delimiters should return sum
+        Testing with "1\n2,3" should return 6
+        """
+        result = self.calculator.add("1\n2,3")
+        assert result == 6

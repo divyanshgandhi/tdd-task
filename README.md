@@ -50,8 +50,8 @@ ptw --runner "pytest --tb=short"
 ### ✅ Step 2: Handle Any Amount of Numbers
 - [x] Support unlimited comma-separated numbers
 
-### Step 3: Handle New Lines
-- [ ] Support new lines between numbers: `"1\n2,3"` → `6`
+### ✅ Step 3: Handle New Lines
+- [x] Support new lines between numbers: `"1\n2,3"` → `6`
 
 ### Step 4: Support Different Delimiters
 - [ ] Custom delimiter format: `"//[delimiter]\n[numbers...]"`
