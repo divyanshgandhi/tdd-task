@@ -213,3 +213,27 @@ class TestStringCalculator:
         """
         result = self.calculator.add("//[*][%][;]\n1*2%3;4")
         assert result == 10
+
+    def test_multiple_long_delimiters_simple(self):
+        """
+        ADVANCED FEATURE: Multiple long delimiters
+        Testing with "//[***][%%]\n1***2%%3" should return 6
+        """
+        result = self.calculator.add("//[***][%%]\n1***2%%3")
+        assert result == 6
+
+    def test_multiple_long_delimiters_different_lengths(self):
+        """
+        ADVANCED FEATURE: Multiple delimiters with different lengths
+        Testing with "//[sep][ab]\n1sep2ab3sep4" should return 10
+        """
+        result = self.calculator.add("//[sep][ab]\n1sep2ab3sep4")
+        assert result == 10
+
+    def test_multiple_long_delimiters_complex(self):
+        """
+        ADVANCED FEATURE: Complex multiple long delimiters
+        Testing with "//[***][abc][;]\n1***2abc3;4***5" should return 15
+        """
+        result = self.calculator.add("//[***][abc][;]\n1***2abc3;4***5")
+        assert result == 15
