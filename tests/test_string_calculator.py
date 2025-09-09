@@ -31,3 +31,11 @@ class TestStringCalculator:
         """
         result = self.calculator.add("1")
         assert result == 1
+
+    def test_two_comma_separated_numbers_return_sum(self):
+        """
+        RED PHASE: Two comma-separated numbers should return their sum
+        Testing with "1,2" should return 3
+        """
+        result = self.calculator.add("1,2")
+        assert result == 3

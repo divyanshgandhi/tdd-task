@@ -29,5 +29,10 @@ class StringCalculator:
         if not numbers:
             return 0
         
+        # Handle comma-separated numbers
+        if ',' in numbers:
+            parts = numbers.split(',')
+            return sum(int(part) for part in parts)
+        
         # Handle single number case
         return int(numbers)

@@ -42,10 +42,10 @@ ptw --runner "pytest --tb=short"
 - [x] Create empty implementation
 - [x] Setup tests for `StringCalculator`
 
-### Step 1: Basic String Calculator
+### ✅ Step 1: Basic String Calculator
 - [x] Empty string returns 0
 - [x] Single number returns that number
-- [ ] Two comma-separated numbers return their sum
+- [x] Two comma-separated numbers return their sum
 
 ### Step 2: Handle Any Amount of Numbers
 - [ ] Support unlimited comma-separated numbers
