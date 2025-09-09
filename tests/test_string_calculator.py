@@ -117,3 +117,27 @@ class TestStringCalculator:
         
         with pytest.raises(ValueError):
             self.calculator.add(",1")    # Leading comma
+
+    def test_single_negative_number_throws_exception(self):
+        """
+        RED PHASE: Single negative number should throw exception
+        Testing with "1,-2,3" should raise ValueError with message
+        """
+        with pytest.raises(ValueError, match="negatives not allowed: -2"):
+            self.calculator.add("1,-2,3")
+
+    def test_multiple_negative_numbers_throw_exception(self):
+        """
+        RED PHASE: Multiple negative numbers should show all in exception
+        Testing with "-1,-2,3" should raise ValueError with both negatives
+        """
+        with pytest.raises(ValueError, match="negatives not allowed: -1, -2"):
+            self.calculator.add("-1,-2,3")
+
+    def test_negative_with_custom_delimiter_throws_exception(self):
+        """
+        RED PHASE: Negative numbers with custom delimiters should throw exception
+        Testing with "//;\n1;-2;3" should raise ValueError
+        """
+        with pytest.raises(ValueError, match="negatives not allowed: -2"):
+            self.calculator.add("//;\n1;-2;3")

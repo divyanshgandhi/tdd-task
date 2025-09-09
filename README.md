@@ -57,9 +57,9 @@ ptw --runner "pytest --tb=short"
 - [x] Custom delimiter format: `"//[delimiter]\n[numbers...]"`
 - [x] Example: `"//;\n1;2"` → `3`
 
-### Step 5: Negative Numbers
-- [ ] Throw exception for negative numbers
-- [ ] Show all negatives in exception message
+### ✅ Step 5: Negative Numbers
+- [x] Throw exception for negative numbers
+- [x] Show all negatives in exception message
 
 ## 🧪 Running Tests
 

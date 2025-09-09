@@ -37,12 +37,37 @@ class StringCalculator:
             # Escape special regex characters
             escaped_delimiter = re.escape(custom_delimiter)
             parts = re.split(escaped_delimiter, numbers_part)
-            return sum(int(part) for part in parts)
+            return self._calculate_sum_with_validation(parts)
         
         # Handle comma and/or newline-separated numbers
         if ',' in numbers or '\n' in numbers:
             parts = re.split(r'[,\n]', numbers)
-            return sum(int(part) for part in parts)
+            return self._calculate_sum_with_validation(parts)
         
         # Handle single number case
-        return int(numbers)
+        number = int(numbers)
+        if number < 0:
+            raise ValueError(f"negatives not allowed: {number}")
+        return number
+
+    def _calculate_sum_with_validation(self, parts: List[str]) -> int:
+        """
+        Calculate sum of string parts while validating for negative numbers.
+        
+        Args:
+            parts: List of string numbers to sum
+            
+        Returns:
+            int: Sum of all positive numbers
+            
+        Raises:
+            ValueError: When negative numbers are found
+        """
+        numbers = [int(part) for part in parts]
+        negatives = [num for num in numbers if num < 0]
+        
+        if negatives:
+            negatives_str = ", ".join(str(neg) for neg in negatives)
+            raise ValueError(f"negatives not allowed: {negatives_str}")
+        
+        return sum(numbers)
