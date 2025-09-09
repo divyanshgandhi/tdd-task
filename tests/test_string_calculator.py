@@ -23,3 +23,11 @@ class TestStringCalculator:
         """
         result = self.calculator.add("")
         assert result == 0
+
+    def test_single_number_returns_itself(self):
+        """
+        RED PHASE: Single number should return that number
+        Testing with "1" should return 1
+        """
+        result = self.calculator.add("1")
+        assert result == 1

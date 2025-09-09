@@ -28,3 +28,6 @@ class StringCalculator:
         # Handle empty string case - minimal implementation
         if not numbers:
             return 0
+        
+        # Handle single number case
+        return int(numbers)

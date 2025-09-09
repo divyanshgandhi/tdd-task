@@ -44,7 +44,7 @@ ptw --runner "pytest --tb=short"
 
 ### Step 1: Basic String Calculator
 - [x] Empty string returns 0
-- [ ] Single number returns that number
+- [x] Single number returns that number
 - [ ] Two comma-separated numbers return their sum
 
 ### Step 2: Handle Any Amount of Numbers
