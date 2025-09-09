@@ -47,8 +47,8 @@ ptw --runner "pytest --tb=short"
 - [x] Single number returns that number
 - [x] Two comma-separated numbers return their sum
 
-### Step 2: Handle Any Amount of Numbers
-- [ ] Support unlimited comma-separated numbers
+### ✅ Step 2: Handle Any Amount of Numbers
+- [x] Support unlimited comma-separated numbers
 
 ### Step 3: Handle New Lines
 - [ ] Support new lines between numbers: `"1\n2,3"` → `6`

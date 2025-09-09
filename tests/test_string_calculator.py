@@ -39,3 +39,19 @@ class TestStringCalculator:
         """
         result = self.calculator.add("1,2")
         assert result == 3
+
+    def test_multiple_comma_separated_numbers_return_sum(self):
+        """
+        RED PHASE: Multiple comma-separated numbers should return their sum
+        Testing with "1,2,3" should return 6
+        """
+        result = self.calculator.add("1,2,3")
+        assert result == 6
+
+    def test_many_comma_separated_numbers_return_sum(self):
+        """
+        RED PHASE: Many comma-separated numbers should return their sum
+        Testing with "1,2,3,4,5" should return 15
+        """
+        result = self.calculator.add("1,2,3,4,5")
+        assert result == 15
