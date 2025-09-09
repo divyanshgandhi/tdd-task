@@ -35,12 +35,18 @@ class StringCalculator:
             delimiter_line, numbers_part = numbers.split('\n', 1)
             custom_delimiter = delimiter_line[2:]  # Remove '//' prefix
             
-            # Check for bracket notation: //[delimiter]\n
-            if custom_delimiter.startswith('[') and custom_delimiter.endswith(']'):
-                # Extract delimiter from brackets
-                custom_delimiter = custom_delimiter[1:-1]
+            # Check for bracket notation: //[delimiter]\n or multiple //[del1][del2]\n
+            if '[' in custom_delimiter and ']' in custom_delimiter:
+                # Extract all delimiters from brackets using regex
+                delimiter_matches = re.findall(r'\[([^\]]+)\]', custom_delimiter)
+                if delimiter_matches:
+                    # Escape each delimiter and join with | for alternation
+                    escaped_delimiters = [re.escape(delim) for delim in delimiter_matches]
+                    combined_pattern = '|'.join(escaped_delimiters)
+                    parts = re.split(combined_pattern, numbers_part)
+                    return self._calculate_sum_with_validation(parts)
             
-            # Escape special regex characters
+            # Fallback to original single delimiter logic (no brackets)
             escaped_delimiter = re.escape(custom_delimiter)
             parts = re.split(escaped_delimiter, numbers_part)
             return self._calculate_sum_with_validation(parts)

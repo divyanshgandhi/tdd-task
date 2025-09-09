@@ -189,3 +189,27 @@ class TestStringCalculator:
         """
         result = self.calculator.add("//[;]\n1;2;3")
         assert result == 6
+
+    def test_multiple_delimiters_single_char(self):
+        """
+        ADVANCED FEATURE: Multiple single-char delimiters
+        Testing with "//[*][%]\n1*2%3" should return 6
+        """
+        result = self.calculator.add("//[*][%]\n1*2%3")
+        assert result == 6
+
+    def test_multiple_delimiters_different_pattern(self):
+        """
+        ADVANCED FEATURE: Multiple delimiters with different usage
+        Testing with "//[;][|]\n1;2|3;4" should return 10
+        """
+        result = self.calculator.add("//[;][|]\n1;2|3;4")
+        assert result == 10
+
+    def test_multiple_delimiters_three_delimiters(self):
+        """
+        ADVANCED FEATURE: Three different delimiters
+        Testing with "//[*][%][;]\n1*2%3;4" should return 10
+        """
+        result = self.calculator.add("//[*][%][;]\n1*2%3;4")
+        assert result == 10
