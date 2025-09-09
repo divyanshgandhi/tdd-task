@@ -25,6 +25,6 @@ class StringCalculator:
         Raises:
             ValueError: When negative numbers are provided
         """
-        # TODO: Implement the calculation logic
-        # Starting with minimal implementation to pass first test
-        pass
+        # Handle empty string case - minimal implementation
+        if not numbers:
+            return 0
