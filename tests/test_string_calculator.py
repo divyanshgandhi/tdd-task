@@ -95,3 +95,25 @@ class TestStringCalculator:
         """
         result = self.calculator.add("//*\n1*2*3*4")
         assert result == 10
+
+    def test_invalid_trailing_comma_newline_raises_error(self):
+        """
+        EDGE CASE: Invalid input "1,\n" should raise ValueError
+        This input is NOT allowed as per kata requirements
+        """
+        with pytest.raises(ValueError):
+            self.calculator.add("1,\n")
+
+    def test_invalid_empty_parts_raise_error(self):
+        """
+        EDGE CASE: Empty parts in input should raise ValueError
+        Testing various invalid formats with empty segments
+        """
+        with pytest.raises(ValueError):
+            self.calculator.add("1,,2")  # Double comma
+        
+        with pytest.raises(ValueError):
+            self.calculator.add("1,")    # Trailing comma
+        
+        with pytest.raises(ValueError):
+            self.calculator.add(",1")    # Leading comma
