@@ -165,3 +165,27 @@ class TestStringCalculator:
         """
         result = self.calculator.add("2,1000")
         assert result == 1002
+
+    def test_long_delimiter_with_brackets(self):
+        """
+        ADVANCED FEATURE: Long delimiters with bracket notation
+        Testing with "//[***]\n1***2***3" should return 6
+        """
+        result = self.calculator.add("//[***]\n1***2***3")
+        assert result == 6
+
+    def test_long_delimiter_different_pattern(self):
+        """
+        ADVANCED FEATURE: Different long delimiter pattern
+        Testing with "//[sep]\n2sep3sep4" should return 9
+        """
+        result = self.calculator.add("//[sep]\n2sep3sep4")
+        assert result == 9
+
+    def test_long_delimiter_single_char_in_brackets(self):
+        """
+        ADVANCED FEATURE: Single char in brackets should work
+        Testing with "//[;]\n1;2;3" should return 6
+        """
+        result = self.calculator.add("//[;]\n1;2;3")
+        assert result == 6

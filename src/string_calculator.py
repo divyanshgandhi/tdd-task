@@ -34,6 +34,12 @@ class StringCalculator:
             # Extract custom delimiter and numbers
             delimiter_line, numbers_part = numbers.split('\n', 1)
             custom_delimiter = delimiter_line[2:]  # Remove '//' prefix
+            
+            # Check for bracket notation: //[delimiter]\n
+            if custom_delimiter.startswith('[') and custom_delimiter.endswith(']'):
+                # Extract delimiter from brackets
+                custom_delimiter = custom_delimiter[1:-1]
+            
             # Escape special regex characters
             escaped_delimiter = re.escape(custom_delimiter)
             parts = re.split(escaped_delimiter, numbers_part)
